@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific - large generated data
+data/synthetic_dataset/
+data/manuals/
+tmp_*/
+
+# Trained model (optional - comment out if you want to include it)
+# data/models/rf_model.joblib
+
+# Logs and temp files
+*.log
+audit_reports/
