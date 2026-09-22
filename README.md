@@ -4,6 +4,40 @@
 
 ---
 
+## Screenshots
+
+### PASS — Normal Metal Component (Green Border)
+<!-- Replace the line below with your actual screenshot after uploading it to GitHub -->
+![Dashboard PASS Screenshot](screenshots/dashboard_pass.png)
+
+> Frame 100: The system correctly identifies a clean, defect-free metal surface. The green border and PASS status confirm no maintenance action is needed.
+
+---
+
+### CRITICAL — Crack Detected (Red Border + RAG Work Order)
+<!-- Replace the line below with your actual screenshot after uploading it to GitHub -->
+![Dashboard Crack Screenshot](screenshots/dashboard_crack.png)
+
+> Frame 103: A branching structural crack is detected at severity 10.0/10.0. The red border triggers automatically, and the LangGraph RAG agent immediately generates Work Order WO-103 with GTAW welding repair steps extracted from the maintenance manual.
+
+---
+
+### CRITICAL — Dimensional Flaw Detected (Red Border)
+<!-- Replace the line below with your actual screenshot after uploading it to GitHub -->
+![Dashboard Dimensional Screenshot](screenshots/dashboard_dimensional.png)
+
+> Frame 101: A dimensional edge flaw is detected. The RAG agent generates a work order referencing CNC remachining procedures from the SOP manual.
+
+---
+
+> **How to add your own screenshots:**
+> 1. Create a folder called `screenshots/` in the project root
+> 2. Save your dashboard images into that folder
+> 3. Run `git add screenshots/` then `git commit -m "Add screenshots"` then `git push`
+> 4. The images will appear here automatically
+
+---
+
 ## Project Overview
 
 Instead of building 4 disconnected scripts, this project builds **one integrated system** that connects all target technologies into a single automated factory inspection pipeline:
