@@ -26,7 +26,7 @@
 <!-- Replace the line below with your actual screenshot after uploading it to GitHub -->
 ![Dashboard Dimensional Screenshot](screenshots/dashboard_dimensional.png)
 
-> Frame 101: A dimensional edge flaw is detected. The RAG agent generates a work order referencing CNC remachining procedures from the SOP manual.
+> Frame 105: A dimensional edge flaw is detected at severity 10.0/10.0. The red border triggers automatically, and the RAG agent generates Work Order WO-105 referencing CNC remachining procedures from the SOP manual.
 
 ---
 

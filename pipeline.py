@@ -62,17 +62,18 @@ class IndustrialVisionPipeline:
             pred_label = "unknown"
             print(f"ML Prediction Error: {e}")
 
-        # Calculate dynamic severity based on defect size (Task 3 Regressor simulation)
+        # Calculate dynamic severity based on defect size & type
         defect_ratio = feats.get("total_area", 0) / (frame.shape[0] * frame.shape[1])
-        if pred_label == "normal" or defect_ratio == 0:
+        if pred_label == "normal" or feats.get("contour_count", 0) == 0:
             severity_score = 0.0
             severity_level = "PASS"
         else:
-            # Scale ratio to a 1.0 - 10.0 score
-            severity_score = min(10.0, round(defect_ratio * 1500 + 2.0, 1))
-            if severity_score > 7.5:
+            # Scale ratio depending on defect type (dimensional flaws have localized area but high impact)
+            multiplier = 5000.0 if pred_label == "dimensional" else 2000.0
+            severity_score = min(10.0, round(defect_ratio * multiplier + 3.0, 1))
+            if severity_score >= 7.5:
                 severity_level = "CRITICAL"
-            elif severity_score > 4.0:
+            elif severity_score >= 4.0:
                 severity_level = "MEDIUM"
             else:
                 severity_level = "LOW"
