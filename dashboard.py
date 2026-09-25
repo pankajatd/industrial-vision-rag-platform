@@ -77,7 +77,8 @@ def run_dashboard():
         print(f"\n=============================================")
         print(f"[CAMERA] CAPTURING FRAME {frame_idx}...")
         
-        # Generate synthetic frame
+        # Set a deterministic seed per frame to ensure clean, reproducible defect shapes
+        generator.set_seed(frame_idx)
         frame, true_meta, _ = generator.generate_sample(defect_type=defect, severity=8.0)
         
         # Run through Master Pipeline
