@@ -1,9 +1,24 @@
-import cv2
-import numpy as np
-import time
-import json
-from pipeline import IndustrialVisionPipeline
-from src.task1_synthetic.generator import SyntheticIndustrialGenerator, DefectType
+import sys
+
+# Dual-mode support: If launched in Streamlit Cloud or via "streamlit run dashboard.py"
+try:
+    import streamlit as st
+    if st.runtime.exists():
+        import streamlit_app
+        # Streamlit execution handled by streamlit_app
+        return_early = True
+    else:
+        return_early = False
+except Exception:
+    return_early = False
+
+if not return_early:
+    import cv2
+    import numpy as np
+    import time
+    import json
+    from pipeline import IndustrialVisionPipeline
+    from src.task1_synthetic.generator import SyntheticIndustrialGenerator, DefectType
 
 def draw_hud(frame, alert, work_order):
     """Draws a diagnostic Heads-Up Display overlay on the camera frame."""

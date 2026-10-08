@@ -37,3 +37,5 @@ tmp_*/
 # Logs and temp files
 *.log
 audit_reports/
+*.pptx
+generate_ppts.py
